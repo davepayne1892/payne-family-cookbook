@@ -1,3 +1,28 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "pasta-carbonara",
+      "description": "A classic Italian pasta dish with eggs, cheese, pancetta, and pepper.",
+      "imageUrl": "https://images.unsplash.com/photo-1560434019-4558f9a9e2a1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwYXN0YSUyMGNhcmJvbmFyYXxlbnwwfHx8fDE3NjA5NTQzMDd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pasta carbonara"
+    },
+    {
+      "id": "tomato-soup",
+      "description": "A creamy and comforting tomato soup, perfect for a chilly day.",
+      "imageUrl": "https://images.unsplash.com/photo-1673021889619-0677506b56ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8dG9tYXRvJTIwc291cHxlbnwwfHx8fDE3NjA4ODEzODV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "tomato soup"
+    },
+    {
+      "id": "chocolate-cake",
+      "description": "A rich and moist chocolate cake with a decadent fudge frosting.",
+      "imageUrl": "https://images.unsplash.com/photo-1517427294546-5aa121f68e8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjaG9jb2xhdGUlMjBjYWtlfGVufDB8fHx8MTc2MDk1MjYzMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "chocolate cake"
+    },
+    {
+      "id": "greek-salad",
+      "description": "A fresh and vibrant Greek salad with feta, olives, and a lemon-herb vinaigrette.",
+      "imageUrl": "https://images.unsplash.com/photo-1573409157844-6a56035363fc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxncmVlayUyMHNhbGFkfGVufDB8fHx8MTc2MDg1MDQzOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "greek salad"
+    }
+  ]
 }
