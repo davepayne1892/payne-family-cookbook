@@ -70,7 +70,7 @@ export function RecipeList({ allRecipes }: RecipeListProps) {
             <div className="grid grid-cols-2 gap-4">
                 <div>
                     <Label htmlFor="prep-time-filter" className="text-sm font-medium">Max Cook Time</Label>
-                    <Select value={maxPrepTime} onValueChange={setMaxPrepTime}>
+                    <Select value={maxPrepTime} onValueChange={(value) => setMaxPrepTime(value === 'any' ? '' : value)}>
                         <SelectTrigger id="prep-time-filter" className="w-full sm:w-[180px] bg-background">
                             <SelectValue placeholder="Any" />
                         </SelectTrigger>
@@ -79,13 +79,13 @@ export function RecipeList({ allRecipes }: RecipeListProps) {
                             <SelectItem value="30">30 minutes</SelectItem>
                             <SelectItem value="60">1 hour</SelectItem>
                             <SelectItem value="90">1.5 hours</SelectItem>
-                            <SelectItem value="">Any</SelectItem>
+                            <SelectItem value="any">Any</SelectItem>
                         </SelectContent>
                     </Select>
                 </div>
                 <div>
                     <Label htmlFor="ingredient-count-filter" className="text-sm font-medium">Max Ingredients</Label>
-                    <Select value={maxIngredients} onValueChange={setMaxIngredients}>
+                    <Select value={maxIngredients} onValueChange={(value) => setMaxIngredients(value === 'any' ? '' : value)}>
                         <SelectTrigger id="ingredient-count-filter" className="w-full sm:w-[180px] bg-background">
                             <SelectValue placeholder="Any" />
                         </SelectTrigger>
@@ -93,7 +93,7 @@ export function RecipeList({ allRecipes }: RecipeListProps) {
                             <SelectItem value="5">5 ingredients</SelectItem>
                             <SelectItem value="10">10 ingredients</SelectItem>
                             <SelectItem value="15">15 ingredients</SelectItem>
-                            <SelectItem value="">Any</SelectItem>
+                            <SelectItem value="any">Any</SelectItem>
                         </SelectContent>
                     </Select>
                 </div>
