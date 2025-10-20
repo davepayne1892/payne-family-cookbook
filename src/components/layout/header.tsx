@@ -16,7 +16,7 @@ export function Header() {
               <ChefHat className="h-6 w-6" />
             </div>
             <span className="text-xl font-headline font-semibold">
-              Family Cookbook
+              Payne Family Cookbook
             </span>
           </Link>
           <nav className="flex items-center gap-2">

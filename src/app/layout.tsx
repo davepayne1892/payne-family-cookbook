@@ -5,8 +5,8 @@ import { Footer } from "@/components/layout/footer";
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: "Family Cookbook",
-  description: "A collection of family recipes.",
+  title: "Payne Family Cookbook",
+  description: "A collection of Payne family recipes.",
 };
 
 export default function RootLayout({
