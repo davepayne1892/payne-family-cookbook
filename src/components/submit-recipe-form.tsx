@@ -24,6 +24,7 @@ const formSchema = z.object({
   prepTime: z.string().min(3, "Please enter a preparation time."),
   servings: z.string().min(1, "Please enter the number of servings."),
   tags: z.string().min(3, "Please add at least one tag."),
+  image: z.string().url("Please enter a valid image URL."),
   content: z.string().min(50, "Recipe content must be at least 50 characters."),
 });
 
@@ -51,6 +52,7 @@ export function SubmitRecipeForm() {
       prepTime: "",
       servings: "",
       tags: "",
+      image: "",
       content: "",
     },
   });
@@ -145,6 +147,23 @@ export function SubmitRecipeForm() {
                     )}
                 />
             </div>
+            
+            <FormField
+              control={form.control}
+              name="image"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Image URL</FormLabel>
+                  <FormControl>
+                    <Input placeholder="https://example.com/image.jpg" {...field} />
+                  </FormControl>
+                   <FormDescription>
+                      Link to a publicly accessible image for the recipe.
+                    </FormDescription>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
 
             <FormField
               control={form.control}
