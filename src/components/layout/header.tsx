@@ -2,9 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChefHat, PlusCircle } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
+import { ChefHat } from "lucide-react";
 
 export function Header() {
   const pathname = usePathname();
@@ -22,12 +20,7 @@ export function Header() {
             </span>
           </Link>
           <nav className="flex items-center gap-2">
-            <Button asChild variant={pathname === "/submit" ? "secondary" : "ghost"} size="sm">
-              <Link href="/submit">
-                <PlusCircle className="h-4 w-4 mr-2" />
-                Submit Recipe
-              </Link>
-            </Button>
+            {/* The submit button has been removed as recipes are now managed via Markdown files */}
           </nav>
         </div>
       </div>

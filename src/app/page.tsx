@@ -1,7 +1,8 @@
 import { RecipeList } from "@/components/recipe-list";
-import { recipes } from "@/lib/recipes";
+import { getAllRecipes } from "@/lib/recipes";
 
 export default function Home() {
+  const allRecipes = getAllRecipes();
   return (
     <div className="space-y-8">
       <div className="text-center space-y-2">
@@ -12,7 +13,7 @@ export default function Home() {
           A collection of our favorite family recipes.
         </p>
       </div>
-      <RecipeList allRecipes={recipes} />
+      <RecipeList allRecipes={allRecipes} />
     </div>
   );
 }
