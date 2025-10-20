@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Clock, Users } from "lucide-react";
+import { Clock, Users, ListChecks } from "lucide-react";
 
 type RecipeCardProps = {
   recipe: Recipe;
@@ -43,14 +43,14 @@ export function RecipeCard({ recipe }: RecipeCardProps) {
           </div>
         </CardContent>
         <CardFooter className="p-4 bg-muted/50 flex items-center justify-between text-sm text-muted-foreground">
-          <div className="flex items-center gap-2">
-            <Clock className="h-4 w-4" />
-            <span>{recipe.prepTime}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Users className="h-4 w-4" />
-            <span>{recipe.servings} servings</span>
-          </div>
+            <div className="flex items-center gap-2">
+                <Clock className="h-4 w-4" />
+                <span>{recipe.prepTime}</span>
+            </div>
+            <div className="flex items-center gap-2">
+                <ListChecks className="h-4 w-4" />
+                <span>{recipe.ingredientCount} ingredients</span>
+            </div>
         </CardFooter>
       </Card>
     </Link>

@@ -12,12 +12,43 @@ export type Recipe = {
   title: string;
   author: string;
   prepTime: string;
+  prepTimeMinutes: number;
   servings: string;
   image: string;
   imageHint: string;
   tags: string[];
   content: string;
+  ingredientCount: number;
 };
+
+const getIngredientCount = (content: string): number => {
+    const ingredientsSection = content.split('### Ingredients')[1];
+    if (!ingredientsSection) return 0;
+    const ingredientsList = ingredientsSection.split('###')[0];
+    return (ingredientsList.match(/-\s/g) || []).length;
+};
+
+const parsePrepTime = (prepTime: string): number => {
+    const timeParts = prepTime.toLowerCase().split(' ');
+    let totalMinutes = 0;
+    const hourIndex = timeParts.findIndex(part => part.includes('hour'));
+    if (hourIndex > -1 && hourIndex > 0) {
+        totalMinutes += parseInt(timeParts[hourIndex - 1]) * 60;
+    }
+    const minuteIndex = timeParts.findIndex(part => part.includes('minute'));
+    if (minuteIndex > -1 && minuteIndex > 0) {
+        totalMinutes += parseInt(timeParts[minuteIndex - 1]);
+    }
+    // if no hour or minute, just parse the first number
+    if (totalMinutes === 0) {
+        const firstNum = prepTime.match(/\d+/);
+        if (firstNum) {
+            return parseInt(firstNum[0]);
+        }
+    }
+    return totalMinutes;
+};
+
 
 export const recipes: Recipe[] = [
   {
@@ -26,6 +57,7 @@ export const recipes: Recipe[] = [
     title: "Classic Spaghetti Carbonara",
     author: "Grandma Maria",
     prepTime: "30 Minutes",
+    prepTimeMinutes: 30,
     servings: "4",
     image: "https://picsum.photos/seed/pasta/600/400",
     imageHint: "pasta carbonara",
@@ -51,6 +83,7 @@ A timeless Italian classic that's quicker to make than you think. The key is to 
 6. Quickly pour the egg and cheese mixture over the pasta, stirring vigorously to create a creamy sauce. If the sauce is too thick, add a splash of the reserved pasta water.
 7. Serve immediately, garnished with more grated cheese and a final crack of black pepper.
 `,
+    ingredientCount: 7,
   },
   {
     id: "2",
@@ -58,6 +91,7 @@ A timeless Italian classic that's quicker to make than you think. The key is to 
     title: "Creamy Tomato Soup",
     author: "Aunt Carol",
     prepTime: "45 Minutes",
+    prepTimeMinutes: 45,
     servings: "6",
     image: "https://picsum.photos/seed/soup/600/400",
     imageHint: "tomato soup",
@@ -86,6 +120,7 @@ The ultimate comfort food. Perfect with a grilled cheese sandwich for dipping.
 7. Gently heat the soup for a few more minutes, but do not let it boil.
 8. Serve hot, garnished with fresh basil leaves.
 `,
+    ingredientCount: 9,
   },
   {
     id: "3",
@@ -93,6 +128,7 @@ The ultimate comfort food. Perfect with a grilled cheese sandwich for dipping.
     title: "Ultimate Chocolate Fudge Cake",
     author: "Cousin David",
     prepTime: "1 Hour 20 Minutes",
+    prepTimeMinutes: 80,
     servings: "12",
     image: "https://picsum.photos/seed/cake/600/400",
     imageHint: "chocolate cake",
@@ -123,6 +159,7 @@ A rich, decadent chocolate cake that's surprisingly easy to make. This will be t
 7. Bake for 30-35 minutes, or until a wooden skewer inserted into the center comes out clean.
 8. Let the cakes cool in the pans for 10 minutes before inverting them onto a wire rack to cool completely before frosting.
 `,
+    ingredientCount: 11,
   },
   {
     id: "4",
@@ -130,6 +167,7 @@ A rich, decadent chocolate cake that's surprisingly easy to make. This will be t
     title: "Refreshing Greek Salad",
     author: "Mom",
     prepTime: "15 Minutes",
+    prepTimeMinutes: 15,
     servings: "4",
     image: "https://picsum.photos/seed/salad/600/400",
     imageHint: "greek salad",
@@ -157,6 +195,7 @@ A quick and healthy salad that's packed with flavor. Perfect for a light lunch o
 5. For best flavor, let the salad sit for about 10 minutes to allow the flavors to marinate.
 6. Serve chilled or at room temperature.
 `,
+    ingredientCount: 9,
   },
 ];
 
