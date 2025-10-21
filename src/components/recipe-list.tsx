@@ -15,7 +15,7 @@ type RecipeListProps = {
 
 export function RecipeList({ allRecipes }: RecipeListProps) {
   const [searchTerm, setSearchTerm] = useState("");
-  const [maxPrepTime, setMaxPrepTime] = useState(120);
+  const [maxPrepTime, setMaxPrepTime] = useState(180);
   const [maxIngredients, setMaxIngredients] = useState(20);
 
   const filteredRecipes = useMemo(() => {

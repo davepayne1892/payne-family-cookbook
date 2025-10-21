@@ -3,7 +3,7 @@ title: "Classic Spaghetti Carbonara"
 author: "Grandma Maria"
 prepTime: "30 Minutes"
 servings: "4"
-image: "https://picsum.photos/seed/pasta/600/400"
+image: "https://images.unsplash.com/photo-1588013273468-315fd88ea34c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2FyYm9uYXJhfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=700"
 imageHint: "pasta carbonara"
 tags:
   - "Pasta"

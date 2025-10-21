@@ -3,7 +3,7 @@ title: "Ultimate Chocolate Fudge Cake"
 author: "Cousin David"
 prepTime: "1 Hour 20 Minutes"
 servings: "12"
-image: "https://picsum.photos/seed/cake/600/400"
+image: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2hvY29sYXRlJTIwZnVkZ2UlMjBjYWtlfGVufDB8fDB8fHww&auto=format&fit=crop&q=60&w=700"
 imageHint: "chocolate cake"
 tags:
   - "Dessert"

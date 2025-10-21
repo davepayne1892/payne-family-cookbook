@@ -3,7 +3,7 @@ title: "Creamy Tomato Soup"
 author: "Aunt Carol"
 prepTime: "45 Minutes"
 servings: "6"
-image: "https://picsum.photos/seed/soup/600/400"
+image: "https://images.unsplash.com/photo-1693762894461-8305cd26ba9f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dG9tYXRvJTIwc291cHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=700"
 imageHint: "tomato soup"
 tags:
   - "Soup"
