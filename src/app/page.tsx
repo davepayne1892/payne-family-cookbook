@@ -1,4 +1,5 @@
 import { RecipeList } from "@/components/recipe-list";
+import { ShoppingListGenerator } from "@/components/shopping-list/shopping-list-generator";
 import { getAllRecipes } from "@/lib/recipes";
 
 export default function Home() {
@@ -13,6 +14,11 @@ export default function Home() {
           A collection of our favorite family recipes.
         </p>
       </div>
+
+      <div className="flex justify-center">
+        <ShoppingListGenerator allRecipes={allRecipes} />
+      </div>
+
       <RecipeList allRecipes={allRecipes} />
     </div>
   );
