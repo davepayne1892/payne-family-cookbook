@@ -24,10 +24,10 @@ A delicious and hearty twist on the classic Italian carbonara, swapping pancetta
 - Salt to taste
 
 ### Instructions
-1. Bring a large pot of salted water to a boil. Cook the spaghetti according to package directions until al dente, adding the broccoli pieces to the pot for the final 3 minutes of boiling.
-2. While the pasta and broccoli are cooking, heat a large skillet over medium-high heat. Add the crumbled sausage meat and cook, breaking it down into small pieces with a spatula, until browned and cooked through, about 5-8 minutes. Remove from heat.
+1. Bring a large pot of salted water to a boil. Cook the spaghetti according to package directions until al dente.
+2. While the pasta is cooking, heat a large skillet over medium-high heat. Add the crumbled sausage meat and cook, breaking it down into small pieces with a spatula, until it starts to brown, about 3-4 minutes. Add the broccoli pieces to the skillet and fry alongside the sausages until the sausage is cooked through and the broccoli is tender and lightly charred, about 4-5 minutes more. Remove from heat.
 3. In a medium bowl, whisk together the eggs and grated cheeses. Season generously with black pepper.
-4. Once the pasta and broccoli are cooked, drain them, reserving about 1/2 cup of the cooking water.
-5. Immediately add the hot pasta and broccoli to the skillet with the sausage. Toss to combine.
+4. Once the pasta is cooked, drain it, reserving about 1/2 cup of the cooking water.
+5. Immediately add the hot pasta to the skillet with the sausage and broccoli. Toss to combine.
 6. Quickly pour the egg and cheese mixture over the hot pasta, stirring vigorously to create a creamy sauce without scrambling the eggs. If the sauce is too thick, add a splash of the reserved pasta cooking water.
 7. Serve immediately, garnished with more grated cheese and a final crack of black pepper.
