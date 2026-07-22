@@ -12,7 +12,7 @@ export function ShoppingListDisplay({
   shoppingList,
 }: ShoppingListDisplayProps) {
   const { toast } = useToast();
-  const listRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLPreElement>(null);
 
   const handleCopy = () => {
     navigator.clipboard.writeText(shoppingList);

@@ -39,7 +39,7 @@ function parseIngredientString(line: string): ParsedIngredient | null {
     if (!match) return { quantity: null, unit: null, name: line };
 
     let quantityStr = match[1]?.trim();
-    let unit = match[5]?.trim();
+    let unit: string | null = match[5]?.trim() || null;
     let name = match[6]?.trim();
 
     let quantity: number | null = null;
