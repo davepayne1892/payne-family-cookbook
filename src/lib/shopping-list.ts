@@ -1,6 +1,8 @@
 import type { Recipe } from "./recipes";
 import pluralize from 'pluralize';
 
+['g', 'kg', 'ml', 'l', 'tbsp', 'tsp', 'oz', 'lb'].forEach(u => pluralize.addUncountableRule(u));
+
 type Ingredient = {
     quantity: number;
     unit: string | null;

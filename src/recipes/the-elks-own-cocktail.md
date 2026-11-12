@@ -16,11 +16,11 @@ tags:
 The perfect winter drink, the Elk's Own! This classic cocktail was first published in the 1927 book *Barflies and Cocktails*, though its origins date back to the early 1900s. Think of it as a rich, fruit-forward winter whiskey sour: bright and tart from the lemon, fruity and complex from the ruby port, balanced by rich Demerara syrup, and topped with a luxurious, velvety foam and freshly grated nutmeg.
 
 ### Ingredients
-- 1 oz rye whiskey (preferably Rittenhouse 100 proof)
-- 3/4 oz ruby port (such as Fonseca Bin #27)
-- 3/4 oz fresh lemon juice
-- 1/2 oz rich Demerara syrup (2:1 sugar to water)
-- 1 egg white (or 3/4 oz aquafaba)
+- 30 ml rye whiskey (preferably Rittenhouse 100 proof)
+- 22.5 ml ruby port (such as Fonseca Bin #27)
+- 22.5 ml fresh lemon juice
+- 15 ml rich Demerara syrup (2:1 sugar to water)
+- 1 egg white (or 22.5 ml aquafaba)
 - Freshly grated nutmeg for garnish
 
 ### Instructions
