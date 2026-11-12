@@ -1,8 +1,9 @@
 import { getRecipeBySlug, getAllRecipes } from "@/lib/recipes";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-import { Clock, Users, UserCircle } from "lucide-react";
+import { Clock, Users, UserCircle, ArrowLeft } from "lucide-react";
 import { RecipeContent } from "@/components/recipe-content";
 import { HandsFreeMode } from "@/components/hands-free-mode";
 import { Separator } from "@/components/ui/separator";
@@ -30,8 +31,22 @@ export default function RecipePage({ params }: RecipePageProps) {
   const description = recipe.content.split('###')[0].trim();
   const instructions = recipe.content.split('### Instructions')[1]?.trim().split('\n').filter(line => /^\d+\./.test(line.trim())) || [];
 
+  const backHref = recipe.category === 'cocktail' ? '/cocktails' : '/';
+  const backLabel = recipe.category === 'cocktail' ? 'Back to Cocktails' : 'Back to Meals';
+
   return (
-    <article className="max-w-4xl mx-auto bg-card rounded-lg shadow-lg overflow-hidden">
+    <div className="space-y-4">
+      <div className="max-w-4xl mx-auto">
+        <Link
+          href={backHref}
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          <span>{backLabel}</span>
+        </Link>
+      </div>
+
+      <article className="max-w-4xl mx-auto bg-card rounded-lg shadow-lg overflow-hidden">
       <div className="relative h-64 md:h-96 w-full">
         <Image
           src={recipe.image}
@@ -60,7 +75,7 @@ export default function RecipePage({ params }: RecipePageProps) {
           </div>
           <div className="flex items-center gap-2">
             <Users className="h-5 w-5 text-primary" />
-            <span>{recipe.servings} servings</span>
+            <span>{recipe.servings} {recipe.servings === "1" ? "serving" : "servings"}</span>
           </div>
         </div>
         
@@ -87,5 +102,6 @@ export default function RecipePage({ params }: RecipePageProps) {
         <RecipeContent content={recipe.content} />
       </div>
     </article>
+    </div>
   );
 }

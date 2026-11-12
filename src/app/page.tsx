@@ -1,9 +1,9 @@
 import { RecipeList } from "@/components/recipe-list";
 import { ShoppingListGenerator } from "@/components/shopping-list/shopping-list-generator";
-import { getAllRecipes } from "@/lib/recipes";
+import { getFoodRecipes } from "@/lib/recipes";
 
 export default function Home() {
-  const allRecipes = getAllRecipes();
+  const foodRecipes = getFoodRecipes();
   return (
     <div className="space-y-8">
       <div className="text-center space-y-2">
@@ -11,15 +11,15 @@ export default function Home() {
           Payne Family Cookbook
         </h1>
         <p className="text-lg text-muted-foreground">
-          A collection of our favorite family recipes.
+          A collection of our favorite family meals and recipes.
         </p>
       </div>
 
       <div className="flex justify-center">
-        <ShoppingListGenerator allRecipes={allRecipes} />
+        <ShoppingListGenerator allRecipes={foodRecipes} />
       </div>
 
-      <RecipeList allRecipes={allRecipes} />
+      <RecipeList allRecipes={foodRecipes} />
     </div>
   );
 }

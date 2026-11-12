@@ -8,6 +8,7 @@ import { RecipeCard } from "@/components/recipe-card";
 import { Search, SlidersHorizontal } from "lucide-react";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
+import { cn } from "@/lib/utils";
 
 type RecipeListProps = {
   allRecipes: Recipe[];
@@ -15,11 +16,28 @@ type RecipeListProps = {
 
 export function RecipeList({ allRecipes }: RecipeListProps) {
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [maxPrepTime, setMaxPrepTime] = useState(180);
   const [maxIngredients, setMaxIngredients] = useState(20);
 
+  const availableTags = useMemo(() => {
+    const counts: Record<string, number> = {};
+    allRecipes.forEach((recipe) => {
+      recipe.tags?.forEach((tag) => {
+        counts[tag] = (counts[tag] || 0) + 1;
+      });
+    });
+    return Object.entries(counts)
+      .sort((a, b) => b[1] - a[1])
+      .map(([tag]) => tag);
+  }, [allRecipes]);
+
   const filteredRecipes = useMemo(() => {
     return allRecipes.filter((recipe) => {
+      if (selectedTag && !recipe.tags?.includes(selectedTag)) {
+        return false;
+      }
+
       if (searchTerm) {
         const lowercasedTerm = searchTerm.toLowerCase();
         const searchMatch =
@@ -41,7 +59,7 @@ export function RecipeList({ allRecipes }: RecipeListProps) {
 
       return true;
     });
-  }, [searchTerm, allRecipes, maxPrepTime, maxIngredients]);
+  }, [searchTerm, selectedTag, allRecipes, maxPrepTime, maxIngredients]);
 
   return (
     <div className="space-y-6">
@@ -57,6 +75,41 @@ export function RecipeList({ allRecipes }: RecipeListProps) {
           />
         </div>
 
+        {availableTags.length > 0 && (
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            <button
+              type="button"
+              onClick={() => setSelectedTag(null)}
+              className={cn(
+                "px-3 py-1 text-xs md:text-sm rounded-full font-medium transition-colors cursor-pointer",
+                selectedTag === null
+                  ? "bg-primary text-primary-foreground shadow-sm"
+                  : "bg-muted text-muted-foreground hover:bg-muted/80"
+              )}
+            >
+              All ({allRecipes.length})
+            </button>
+            {availableTags.map((tag) => {
+              const isSelected = selectedTag === tag;
+              return (
+                <button
+                  key={tag}
+                  type="button"
+                  onClick={() => setSelectedTag(isSelected ? null : tag)}
+                  className={cn(
+                    "px-3 py-1 text-xs md:text-sm rounded-full font-medium transition-colors cursor-pointer",
+                    isSelected
+                      ? "bg-primary text-primary-foreground shadow-sm"
+                      : "bg-muted text-muted-foreground hover:bg-muted/80"
+                  )}
+                >
+                  {tag}
+                </button>
+              );
+            })}
+          </div>
+        )}
+
         <div className="flex flex-col gap-4 justify-center p-4 bg-muted/50 rounded-lg">
           <div className="flex items-center gap-2 font-semibold justify-center">
             <SlidersHorizontal className="h-5 w-5 text-primary" />
@@ -66,14 +119,14 @@ export function RecipeList({ allRecipes }: RecipeListProps) {
             <div className="space-y-3">
               <div className="flex justify-between items-center">
                 <Label htmlFor="prep-time-filter" className="text-sm font-medium">
-                  Max Cook Time
+                  Max Time
                 </Label>
                 <span className="text-sm font-medium text-primary">{maxPrepTime} mins</span>
               </div>
               <Slider
                 id="prep-time-filter"
-                min={10}
-                max={120}
+                min={5}
+                max={180}
                 step={5}
                 value={[maxPrepTime]}
                 onValueChange={(value) => setMaxPrepTime(value[0])}

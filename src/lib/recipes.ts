@@ -15,6 +15,7 @@ export type Recipe = {
   tags: string[];
   content: string;
   ingredientCount: number;
+  category: 'food' | 'cocktail';
 };
 
 const recipesDirectory = path.join(process.cwd(), 'src/recipes');
@@ -54,6 +55,9 @@ export function getAllRecipes(): Recipe[] {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
 
+    const isCocktail = data.category === 'cocktail' || 
+      (Array.isArray(data.tags) && data.tags.some((t: string) => ['cocktail', 'cocktails', 'drink', 'drinks'].includes(t.toLowerCase())));
+
     return {
       id: slug,
       slug,
@@ -64,13 +68,22 @@ export function getAllRecipes(): Recipe[] {
       servings: data.servings,
       image: data.image,
       imageHint: data.imageHint,
-      tags: data.tags,
+      tags: data.tags || [],
       content,
       ingredientCount: getIngredientCount(content),
+      category: (isCocktail ? 'cocktail' : 'food') as 'food' | 'cocktail',
     };
   });
 
   return allRecipesData.sort((a, b) => (a.title > b.title ? 1 : -1));
+}
+
+export function getFoodRecipes(): Recipe[] {
+  return getAllRecipes().filter(recipe => recipe.category === 'food');
+}
+
+export function getCocktailRecipes(): Recipe[] {
+  return getAllRecipes().filter(recipe => recipe.category === 'cocktail');
 }
 
 export function getRecipeBySlug(slug: string): Recipe | undefined {
